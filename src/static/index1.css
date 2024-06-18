@@ -1,0 +1,40 @@
+.header h1 {
+        animation: fadeIn ease 3s;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .navbar a:hover {
+        color: red;
+        font-weight: bold;
+        transform: scale(1.1);
+        transition: all 0.3s ease;
+    }
+
+    .carousel {
+        display: flex;
+        overflow: hidden;
+        animation: slide 10s infinite;
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+        33.33% {
+            transform: translateX(-500px);
+        }
+        66.66% {
+            transform: translateX(-1000px);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }

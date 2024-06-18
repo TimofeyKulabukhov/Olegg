@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Страница авторизации</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1 id="your-id-name">Авторизуйтесь для входа на "секретные" страницы</h1>
+
+<label for="username">Username:</label>
+<input type="text" id="username" placeholder="Логин">
+
+<br><br>
+<label for="password">Password:</label>
+<input type="password" id="password" placeholder="Пароль">
+
+<br><br>
+<button onclick="login()">Войти</button>
+<button onclick="clearFields()">Очистить</button>
+
+</body>
+
+<script>
+const users = [
+    { username: 'admin', password: '12345' },
+    { username: 'user', password: '00000' },
+    { username: 'Astartes', password: 'WH40k' }
+];
+
+function authenticateUser(username, password) {
+    return users.find(user => user.username === username && user.password === password);
+}
+
+function login() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    const user = authenticateUser(username, password);
+
+    if (user) {
+        alert("Для перехода на другую страницу, нажмите ОК");
+        window.location.href = "Уроки, курсы и материалы по различным предметам.html";
+    } else {
+        alert("Неверный логин или пароль");
+    }
+}
+
+function clearFields() {
+    document.getElementById('username').value = "";
+    document.getElementById('password').value = "";
+}
+</script>
+</html>
